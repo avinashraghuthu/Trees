@@ -92,6 +92,16 @@ def bottom_view(root):
 		bottom_view(root.right)
 
 
+# Leaf Node Count
+def get_leaf_node_count(root):
+	if not root:
+		return 0
+
+	if root.left is None and root.right is None:
+		return 1
+	else:
+		return get_leaf_node_count(root.left) + get_leaf_node_count(root.right)
+
 def test():
 	# l1 = TreeNode(4, None, None)
 	# l2 = TreeNode(5, None, None)
@@ -116,4 +126,4 @@ def test():
 	# print "height: "
 	# print height_of_tree(l1)
 	bottom_view(root)
-
+	print "Leaf:",get_leaf_node_count(root)
